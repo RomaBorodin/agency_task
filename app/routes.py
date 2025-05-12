@@ -57,3 +57,11 @@ def edit_agent(id):
         return redirect(url_for('home'))
 
     return render_template("edit_agent.html", agent=agent)
+
+
+@app.route("/delete/<int:id>")
+def delete_agent(id):
+    agent = Agent.query.get_or_404(id)
+    db.session.delete(agent)
+    db.session.commit()
+    return redirect(url_for('home'))
