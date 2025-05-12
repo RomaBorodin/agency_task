@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Add new agent{% endblock %}
+
+<!--{% block body_class %}{% endblock %}-->
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center">Add new agent</h1>
+
+        <div class="card shadow p-4">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Agent name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+
+                    <label for="number" class="form-label">Agent number:</label>
+                    <input type="text" id="number" name="number" class="form-control" required>
+
+                    <label for="email" class="form-label">Agent email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+
+                    <label for="level" class="form-label">Agent level:</label>
+                    <input type="text" id="level" name="level" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Add agent</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
