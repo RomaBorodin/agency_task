@@ -9,6 +9,7 @@ def home():
     agents_list = Agent.query.all()
     return render_template("index.html", agents_list=agents_list)
 
+
 @app.route("/add", methods=["GET", "POST"])
 def add_agent():
     if request.method == "POST":
@@ -29,3 +30,11 @@ def add_agent():
         return redirect(url_for('home'))
 
     return render_template("add_agent.html")
+
+
+@app.route("/agent/<int:id>")
+def get_agent(id):
+    agent = Agent.query.get(id)
+    return render_template("get_agent.html", agent=agent)
+
+

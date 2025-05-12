@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Agent info{% endblock %}
+
+<!--{% block body_class %}{% endblock %}-->
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center">Agent info</h1>
+
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Email</th>
+                        <th>Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ agent.id }}</td>
+                        <td>{{ agent.name }}</td>
+                        <td>{{ agent.number }}</td>
+                        <td>{{ agent.email }}</td>
+                        <td>{{ agent.level }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
