@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+<!--{% block body_class %}{% endblock %}-->
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center">Agents list</h1>
+
+        <div class="card shadow p-3">
+            <ul class="list-group">
+                {% for agent in agents_list %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="{{ url_for('get_agent', id=agent.id) }}" class="text-body text-decoration-none">{{ agent.name }}</a>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('edit_agent', id=agent.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ url_for('delete_agent', id=agent.id) }}" class="btn btn-sm btn-danger">Delete</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
