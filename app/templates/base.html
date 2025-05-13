@@ -10,11 +10,13 @@
 <body class="{% block body_class %}{% endblock %}">
 
 <main class="d-flex">
-    <aside class="d-flex flex-column bg-light p-3" style="width: 220px; min-height: 100vh">
+    <aside class="d-flex flex-column bg-light p-3" style="width: 220px; min-height: 100vh; border-right: 1px solid #333333">
         <h4>Actions</h4>
         <ul class="nav flex-column">
             <li class="nav-item"><a class="nav-link text-black" href="{{ url_for('home') }}">Agents list</a></li>
             <li class="nav-item"><a class="nav-link text-black" href="{{ url_for('add_agent') }}">Add agent</a></li>
+            <li class="nav-item"><a class="nav-link text-black" href="{{ url_for('agent_filter') }}">Agent filter</a></li>
+            <li class="nav-item"><a class="nav-link text-black" href="{{ url_for('delete_all') }}" onclick="return confirm('Are you sure?')">Delete all</a></li>
         </ul>
     </aside>
 

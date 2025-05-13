@@ -65,3 +65,20 @@ def delete_agent(id):
     db.session.delete(agent)
     db.session.commit()
     return redirect(url_for('home'))
+
+
+@app.route("/delete_all")
+def delete_all():
+    Agent.query.delete()
+    db.session.commit()
+    return redirect(url_for('home'))
+
+
+@app.route("/agent_filter", methods=["GET", "POST"])
+def agent_filter():
+    if request.method == "POST":
+        level = request.form["level"]
+        filtered_agents = Agent.query.filter_by(level=level).all()
+        return render_template("index.html", agents_list=filtered_agents)
+
+    return render_template("agent_filter.html")
